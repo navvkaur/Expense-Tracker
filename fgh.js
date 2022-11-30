@@ -14,10 +14,12 @@ showNewUseronScreen(userDetails)
 }
 
 function showNewUseronScreen(userDetails){
- const d=document.getElementById('ul');
- d.innerHTML += localStorage.getItem(userDetails.My_Expense_Amount);
-  
-d.innerHTML = d.innerHTML + li;
+ const d=document.getElementById('ul')
+ const li= `<li id="${userDetails. My_Expense_Amount}"> '${userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}'
+  <button onclick = editUser('${ userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}')> Edit </button> 
+  <button onclick = deleteUser('${userDetails.My_Expense_Amount}')> Delete </button> 
+   </li>`
+d.innerHTML=d.innerHTML + li
 }
 function deleteUser(amount) {
     let child = document.getElementById(amount)

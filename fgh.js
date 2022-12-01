@@ -7,15 +7,16 @@ let userDetails = {
     category :document.getElementById('cat').value 
 }
 
-let userDetails_serialized=JSON.stringify(userDetails)  
+let userDetails_serialized=JSON.stringify(userDetails)   // -----------
 
-localStorage.setItem(userDetails.My_Expense_Amount , userDetails_serialized)
+localStorage.setItem(userDetails.My_Expense_Amount,userDetails_serialized )
+
 showNewUseronScreen(userDetails)
 }
 
 function showNewUseronScreen(userDetails){
  const d=document.getElementById('ul')
- const li= `<li id="${userDetails. My_Expense_Amount}"> '${userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}'
+ let li= `<li id="${userDetails. My_Expense_Amount}"> '${userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}'
   <button onclick = editUser('${ userDetails.My_Expense_Amount}','${userDetails.Description}','${userDetails.category}')> Edit </button> 
   <button onclick = deleteUser('${userDetails.My_Expense_Amount}')> Delete </button> 
    </li>`
@@ -29,9 +30,9 @@ function deleteUser(amount) {
 }
 
 function editUser(amount,description,category) {
-amount=document.getElementById('amount').value
-description=document.getElementById('des').value
-category=document.getElementById('cat').value
+document.getElementById('amount').value=amount
+document.getElementById('des').value=description
+document.getElementById('cat').value=category
 
 deleteUser(amount)
 
